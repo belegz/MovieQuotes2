@@ -122,6 +122,11 @@ class MovieQuotesTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        let movieQuote = movieQuotes[indexPath.row]
+        return Auth.auth().currentUser!.uid == movieQuote.author
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
 //            print("Delete")
