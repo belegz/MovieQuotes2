@@ -16,7 +16,8 @@ class MovieQuotesTableViewController: UITableViewController {
 //    var names = ["Rose","Martha","Donna","Amy","Clara","Bill"]
     var movieQuotes = [MovieQuote]()
     var movieQuotesRef: CollectionReference!
-    var moviewQuoteListener: ListenerRegistration!
+    var movieQuoteListener: ListenerRegistration!
+    var authListenerhandle: AuthStateDidChangeListenerHandle!
     var isShowingAllQuotes = true
     
     override func viewDidLoad() {
@@ -45,6 +46,15 @@ class MovieQuotesTableViewController: UITableViewController {
                                             self.startListening()
         }
         alertController.addAction(authShowAction)
+        
+        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertAction.Style.default) { (action) in
+                    do{
+                       try Auth.auth().signOut()
+                    } catch {
+                        print("Sign out error")
+                    }
+        }
+        alertController.addAction(signOutAction)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
         alertController.addAction(cancelAction)
@@ -77,12 +87,16 @@ class MovieQuotesTableViewController: UITableViewController {
 //        } catch {
 //            print("Sign out error")
 //        }
-//
-//        if (Auth.auth().currentUser==nil){
-//            print("You messed up. There is no user, Go back to the login page.")
-//        }else{
-//            print("You are already signed in.")
-//        }
+
+        authListenerhandle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if (Auth.auth().currentUser==nil){
+                print("You messed up. There is no user, Go back to the login page.")
+                self.navigationController?.popViewController(animated: true)
+            }else{
+                print("You are already signed in. Stay on this page")
+            }
+        }
+
         
         
         
@@ -107,14 +121,14 @@ class MovieQuotesTableViewController: UITableViewController {
     }
     
     func startListening() {
-        if(moviewQuoteListener != nil){
-           moviewQuoteListener.remove()
+        if(movieQuoteListener != nil){
+           movieQuoteListener.remove()
         }
         var query = movieQuotesRef.order(by: "created", descending: true).limit(to: 50)
         if(!isShowingAllQuotes){
             query = query.whereField("author", isEqualTo: Auth.auth().currentUser!.uid)
         }
-        moviewQuoteListener = query.addSnapshotListener { (querySnapshot, error) in
+        movieQuoteListener = query.addSnapshotListener { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 self.movieQuotes.removeAll()
                 querySnapshot.documents.forEach { (documentSnapshot) in
@@ -133,7 +147,8 @@ class MovieQuotesTableViewController: UITableViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        moviewQuoteListener.remove()
+        movieQuoteListener.remove()
+        Auth.auth().removeStateDidChangeListener(authListenerhandle)
     }
     
     func showAddQuoteDialog() {
