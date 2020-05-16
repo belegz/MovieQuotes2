@@ -21,10 +21,26 @@ class MovieQuotesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddQuoteDialog))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showMenu))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddQuoteDialog))
 //        movieQuotes.append(MovieQuote(quote: "I will be back", movie: "The Terminator"))
 //        movieQuotes.append(MovieQuote(quote: "Havo dad, Legolas", movie: "The Fellowship of The Ring"))
         movieQuotesRef = Firestore.firestore().collection("MovieQuotes")
+    }
+    
+    @objc func showMenu(){
+        let alertController = UIAlertController(title: nil, message: "", preferredStyle: .actionSheet)
+
+        let submitAction = UIAlertAction(title: "Create Quote", style: UIAlertAction.Style.default) { (action) in
+            self.showAddQuoteDialog()
+        }
+        alertController.addAction(submitAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+
+        present(alertController,animated:true,completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,8 +87,8 @@ class MovieQuotesTableViewController: UITableViewController {
         moviewQuoteListener.remove()
     }
     
-    @objc func showAddQuoteDialog() {
-                print("Add button!")
+    func showAddQuoteDialog() {
+//                print("Add button!")
         // TODO: add a dialog CRUD
         let alertController = UIAlertController(title: "Create New Movie Quote", message: "", preferredStyle: .alert)
         alertController.addTextField { (textField) in
