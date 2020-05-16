@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		11E986CFA498A56FE14FB929 /* Pods_MovieQuotes2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E30CF564F4E810AABDE25FE /* Pods_MovieQuotes2.framework */; };
+		340B7AD624706DFB000280FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340B7AD524706DFB000280FE /* LoginViewController.swift */; };
 		347A3725246E29D700DA9530 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3724246E29D700DA9530 /* AppDelegate.swift */; };
 		347A3727246E29D700DA9530 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3726246E29D700DA9530 /* SceneDelegate.swift */; };
 		347A372E246E29D700DA9530 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347A372C246E29D700DA9530 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		340B7AD524706DFB000280FE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		347A3721246E29D700DA9530 /* MovieQuotes2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieQuotes2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3724246E29D700DA9530 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		347A3726246E29D700DA9530 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				347A373A246E2C7100DA9530 /* MovieQuotesTableViewController.swift */,
 				347A373C246E2E7300DA9530 /* MovieQuote.swift */,
 				347A373E246E32B300DA9530 /* MovieQuoteDetailViewController.swift */,
+				340B7AD524706DFB000280FE /* LoginViewController.swift */,
 			);
 			path = MovieQuotes2;
 			sourceTree = "<group>";
@@ -89,7 +92,6 @@
 				CB5F0C4BECCDD788E548460C /* Pods-MovieQuotes2.debug.xcconfig */,
 				84F962697EEDD5D441A27719 /* Pods-MovieQuotes2.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -217,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				340B7AD624706DFB000280FE /* LoginViewController.swift in Sources */,
 				347A3725246E29D700DA9530 /* AppDelegate.swift in Sources */,
 				347A373F246E32B300DA9530 /* MovieQuoteDetailViewController.swift in Sources */,
 				347A373D246E2E7300DA9530 /* MovieQuote.swift in Sources */,
