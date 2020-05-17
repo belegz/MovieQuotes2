@@ -161,6 +161,20 @@
                                     <action selector="pressedLoginExistingUser:" destination="Frg-Pe-LjM" eventType="touchUpInside" id="WoW-wk-Q0h"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ncc-To-6ZU">
+                                <rect key="frame" x="81" y="442.5" width="252" height="65"/>
+                                <color key="backgroundColor" red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="ZDi-k6-fc0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <state key="normal" title="Sign in with RoseFire">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedRoseFireLogin:" destination="Frg-Pe-LjM" eventType="touchUpInside" id="Cic-UP-aiL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -171,9 +185,11 @@
                             <constraint firstItem="iyI-OE-6aB" firstAttribute="trailing" secondItem="g8j-nf-bic" secondAttribute="trailing" constant="20" id="MDA-vU-WGn"/>
                             <constraint firstItem="txl-MN-bmZ" firstAttribute="top" secondItem="y73-aS-dsc" secondAttribute="bottom" constant="33" id="Mdw-aV-f7g"/>
                             <constraint firstItem="g8j-nf-bic" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="txl-MN-bmZ" secondAttribute="trailing" constant="8" symbolic="YES" id="PeL-2d-w3K"/>
+                            <constraint firstItem="Ncc-To-6ZU" firstAttribute="centerX" secondItem="iyI-OE-6aB" secondAttribute="centerX" id="SmV-dO-WhV"/>
                             <constraint firstItem="y73-aS-dsc" firstAttribute="top" secondItem="2Rw-gm-n5w" secondAttribute="bottom" constant="30" id="Tjv-93-y1U"/>
                             <constraint firstItem="txl-MN-bmZ" firstAttribute="leading" secondItem="iyI-OE-6aB" secondAttribute="leading" constant="20" id="Xpj-Bj-5xg"/>
                             <constraint firstItem="2Rw-gm-n5w" firstAttribute="top" secondItem="iyI-OE-6aB" secondAttribute="top" constant="50" id="gXA-fQ-qC3"/>
+                            <constraint firstItem="Ncc-To-6ZU" firstAttribute="centerY" secondItem="iyI-OE-6aB" secondAttribute="centerY" id="mfu-ng-VmS"/>
                             <constraint firstItem="iyI-OE-6aB" firstAttribute="trailing" secondItem="y73-aS-dsc" secondAttribute="trailing" constant="20" id="xFh-E8-d91"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iyI-OE-6aB"/>

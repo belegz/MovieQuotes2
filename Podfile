@@ -12,5 +12,6 @@ target 'MovieQuotes2' do
   # https://firebase.google.com/docs/ios/setup#available-pods
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
+  pod 'Rosefire', :git => 'https://ada.csse.rose-hulman.edu/rosefire/ios-sdk.git'
 
 end
