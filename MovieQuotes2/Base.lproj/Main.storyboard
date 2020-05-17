@@ -162,10 +162,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ncc-To-6ZU">
-                                <rect key="frame" x="81" y="442.5" width="252" height="65"/>
+                                <rect key="frame" x="57" y="442.5" width="300" height="65"/>
                                 <color key="backgroundColor" red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="ZDi-k6-fc0"/>
+                                    <constraint firstAttribute="width" constant="300" id="kY0-QR-8Vh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <state key="normal" title="Sign in with RoseFire">
@@ -175,6 +176,14 @@
                                     <action selector="pressedRoseFireLogin:" destination="Frg-Pe-LjM" eventType="touchUpInside" id="Cic-UP-aiL"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7AW-YC-LpT" customClass="GIDSignInButton">
+                                <rect key="frame" x="57" y="532.5" width="300" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Vz0-sp-ARU"/>
+                                    <constraint firstAttribute="height" constant="50" id="awq-ul-sZc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -190,7 +199,9 @@
                             <constraint firstItem="txl-MN-bmZ" firstAttribute="leading" secondItem="iyI-OE-6aB" secondAttribute="leading" constant="20" id="Xpj-Bj-5xg"/>
                             <constraint firstItem="2Rw-gm-n5w" firstAttribute="top" secondItem="iyI-OE-6aB" secondAttribute="top" constant="50" id="gXA-fQ-qC3"/>
                             <constraint firstItem="Ncc-To-6ZU" firstAttribute="centerY" secondItem="iyI-OE-6aB" secondAttribute="centerY" id="mfu-ng-VmS"/>
+                            <constraint firstItem="7AW-YC-LpT" firstAttribute="top" secondItem="Ncc-To-6ZU" secondAttribute="bottom" constant="25" id="qWa-8L-DAZ"/>
                             <constraint firstItem="iyI-OE-6aB" firstAttribute="trailing" secondItem="y73-aS-dsc" secondAttribute="trailing" constant="20" id="xFh-E8-d91"/>
+                            <constraint firstItem="7AW-YC-LpT" firstAttribute="centerX" secondItem="iyI-OE-6aB" secondAttribute="centerX" id="zZK-Ti-peD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iyI-OE-6aB"/>
                     </view>
@@ -198,6 +209,7 @@
                     <connections>
                         <outlet property="emailTestField" destination="2Rw-gm-n5w" id="6N8-Hy-lNL"/>
                         <outlet property="passwordTextField" destination="y73-aS-dsc" id="vgg-13-g7b"/>
+                        <outlet property="signInButton" destination="7AW-YC-LpT" id="gei-ju-crd"/>
                         <segue destination="fQm-fG-Qa8" kind="show" identifier="ShowListSegue" id="2vm-CM-kug"/>
                     </connections>
                 </viewController>
